@@ -13,14 +13,10 @@ double calculateMean(int arr[], int size) {
 
 // Function to calculate median
 double calculateMedian(int arr[], int size) {
-    // Sort the array first
     sort(arr, arr + size);
-    
-    // If even number of elements
     if (size % 2 == 0) {
         return (double)(arr[size/2 - 1] + arr[size/2]) / 2.0;
     }
-    // If odd number of elements
     else {
         return (double)arr[size/2];
     }
