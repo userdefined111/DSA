@@ -50,6 +50,50 @@ public:
     }
 };
 
+// class  shape{
+// public:
+//     virtual void draw()=0;
+// };
+// class circle:public shape{
+// public:
+//     void draw(){
+//         cout<<"Draw Circle\n";
+//     }
+// };
+// class square: public shape{
+// public:
+//     void draw(){
+//         cout<<"Draw Square\n";
+//     }
+// };
+
+// void counter(){
+//     static int count=0;
+//     count ++;
+//     cout<<"count:"<< count<<"\n";
+// }
+// void counter(){
+//     int count=0;
+//     count++;
+//     cout<<"count:"<< count<<"\n";
+// }
+
+// class example{
+// public:
+//     static int x ;
+// };
+// int example::x=0;
+
+// class example{
+// public:
+//     example(){
+//         cout<<"constructor...\n";
+//     }
+//     ~example(){
+//         cout<<"destructor...\n";
+//     }
+// };
+
 int main(){
     child c;
     c.show(); // child class
