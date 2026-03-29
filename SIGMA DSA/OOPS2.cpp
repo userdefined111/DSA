@@ -36,15 +36,23 @@ public:
     void show(){
         cout << "Parent class\n";
     }
+    virtual void display(){
+        cout << "Parent class display function\n";
+    }
 };
 class child:public parent{
 public:
     void show(){
         cout << "Child class\n";
     }
-}
+    void display(){
+        cout << "Child class display function\n";
+    }
+};
 
 int main(){
-    
+    child c;
+    c.show(); // child class
+    c.display(); // child class display function
     return 0;
 }
