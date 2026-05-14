@@ -53,8 +53,12 @@ void permutations(string s,string ans ){
 }
 
 int main(){
+    int arr[5];
+    changearr(arr, 5, 0);
+    cout<<"\n";
     string s="abc";
-    string ans="";
-    permutations(s, ans);
+    printsubsets(s, "");
+    cout<<"\n";
+    permutations(s, "");
     return 0;
 }
