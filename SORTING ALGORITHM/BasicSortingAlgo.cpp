@@ -49,7 +49,7 @@ void countingsort(vector<int>& arr){
     }
     for(int i=minval,j=0;i<=maxval;i++){
         while(freq[i]>0){
-            arr[j+1]=i;
+            arr[j++]=i;
             freq[i]--;
         }
     }
