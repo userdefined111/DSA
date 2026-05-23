@@ -23,8 +23,8 @@ void merge(int a[],int l, int mid, int r){//O(n) time complexity
         j++;
     }
 
-    for(int i=l,x=0;i<=r;i++,x++){
-        a[i]=temp[x];
+    for(int k=0;k<temp.size();k++){
+        a[l+k]=temp[k];
     }
 
 }
