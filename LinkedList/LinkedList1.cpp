@@ -6,9 +6,16 @@ class Node{
     public:
     int data;
     Node* next;
+
     Node(int value) {
         data = value;
         next = nullptr;
+    }
+    ~Node() {
+        if (next != NULL) {
+            delete next;
+            next = NULL;
+        }
     }
 
 };
@@ -53,9 +60,43 @@ public:
         cout<<"NULL\n";
     }
 
-    void InsertMiddle(int value){
+    void InsertMiddle(int value,int pos){
         Node* newNode=new Node(value);
-        
+        Node * temp=head;
+        for(int i=0;i<pos-1;i++){
+            if(temp==NULL){
+                cout<<"Position out of bounds\n";
+                return;
+            }
+            temp=temp->next;
+        }
+        newNode->next=temp->next;
+        temp->next=newNode;
+    }
+
+    void pop_front(){
+        Node* temp=head;
+        head=head->next;
+        temp->next=NULL;
+        delete temp;
+    }
+
+    void pop_back(){
+        Node* temp=head;
+        while(temp->next->next!=NULL){
+            temp=temp->next;
+        }
+        temp->next=NULL;
+        delete tail;
+        tail=temp;
+    }
+
+    ~List(){
+        if(head!=NULL){
+            delete head;
+            head=NULL;
+        }
+    }
 };
 
 int main(){
@@ -63,10 +104,29 @@ int main(){
     ll.push_front(30);
     ll.push_front(20);
     ll.push_front(10);
+    ll.print();
     // 10->20->30
+
     ll.push_back(40);
     ll.push_back(50);
-    // 10->20->30->40->50
     ll.print();
+    // 10->20->30->40->50
+
+    ll.InsertMiddle(25,2);
+    ll.print();
+    // 10->20->25->30->40->50
+
+    ll.pop_front();
+    ll.print();
+    // 20->25->30->40->50
+
+    ll.pop_back();
+    ll.print();
+    // 20->25->30->40
+
+    delete &ll;
+    ll.print();
+    // NULL
+    
     return 0;
 }
