@@ -97,6 +97,49 @@ public:
             head=NULL;
         }
     }
+
+    void srch(int key){
+        Node* temp =head;
+        int idx=0;
+
+        while(temp!=NULL){
+            if(temp->data==key){
+                cout<<"Element found at index: "<<idx<<"\n";
+                return;
+            }
+            temp=temp->next;
+            idx++;
+        }
+        cout<<"Element not found\n";
+    }
+
+    void reverse(){
+        Node* prev=NULL;
+        Node* current=head;
+        Node* next=NULL;
+
+        while(current!=NULL){
+            next=current->next;
+            current->next=prev;
+            prev=current;
+            current=next;
+        }
+        head=prev;
+    }
+
+    void nthNodeFromEnd(int n){
+        Node* newNode=head;
+        newNode=head;
+        for(int i=0;i<n;i++){
+            if(newNode==NULL){
+                cout<<"Position out of bounds\n";
+                return;
+            }
+            newNode=newNode->next;
+        }
+        cout<<"The "<<n<<"th node from the end is: "<<newNode->data<<"\n";
+    }
+
 };
 
 int main(){
@@ -116,17 +159,27 @@ int main(){
     ll.print();
     // 10->20->25->30->40->50
 
+    ll.srch(25);
+    // Element found at index: 2
+
+    ll.reverse();
+    ll.print();
+    // 50->40->30->25->20->10
+
     ll.pop_front();
     ll.print();
-    // 20->25->30->40->50
+    // 40->30->25->20->10
 
     ll.pop_back();
     ll.print();
     // 20->25->30->40
 
+    ll.nthNodeFromEnd(2);
+    // 30
+
     delete &ll;
     ll.print();
     // NULL
-    
+
     return 0;
 }
