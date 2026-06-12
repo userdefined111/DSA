@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// ================= SINGLY LINKED LIST =================
+
 class Node {
 public:
     int data;
@@ -11,6 +13,7 @@ public:
         next = NULL;
     }
 };
+
 class List {
 public:
     Node* head;
@@ -46,6 +49,8 @@ public:
     }
 };
 
+// ================= PRINT FUNCTIONS =================
+
 void printlist(list<int>& myList) {
     list<int>::iterator it;
 
@@ -66,6 +71,8 @@ void printlist(Node* head) {
 
     cout << "NULL\n";
 }
+
+// ================= CYCLE REMOVE =================
 
 void removeCycle(Node* head) {
     Node* slow = head;
@@ -108,11 +115,15 @@ void removeCycle(Node* head) {
     }
 }
 
+// ================= FUNCTION DECLARATIONS =================
+
 Node* split(Node* head);
 Node* merge(Node* left, Node* right);
 Node* mergeSort(Node* head);
 Node* zigzagLL(Node* head);
 Node* reverseLL(Node* head);
+
+// ================= MERGE SORT =================
 
 Node* mergeSort(Node* head) {
     if (head == NULL || head->next == NULL) {
@@ -175,92 +186,124 @@ Node* merge(Node* left, Node* right) {
     return ans.head;
 }
 
-Node* zigzagLL(Node* head) {
-    if(head == NULL || head->next == NULL) {
-        return head;
+// ================= REVERSE LINKED LIST =================
+
+Node* reverseLL(Node* head) {
+    Node* prev = NULL;
+    Node* curr = head;
+    Node* next = NULL;
+
+    while (curr != NULL) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
     }
 
-    Node* righthead= split(head);
-    Node* rightheadrev  = reverseLL(righthead);
-
-    Node* left = head;
-    Node* right = rightheadrev;
-    Node* tail=right;
-
-    while(left!=NULL && right!=NULL){
-        Node* nextleft= left->next;
-        Node* nextright= right->next;
-
-        left->next= right;
-        if(nextleft==NULL){
-            break;
-        }
-
-        right->next= nextleft;
-        left= nextleft;
-        right= nextright;
-    }
-    return head;
-}
-
-Node* reverseLL(Node* head){
-    Node* prev =NULL;
-    Node* curr =head;
-    Node*next =NULL;
-
-    while(curr!=NULL){
-        next= curr->next;
-        curr->next =prev;
-        prev=curr;
-        curr=next;
-    }
     return prev;
 }
 
-class Node{
-    public:
-    int data;
-    Node* next;
-    Node*prev;
+// ================= ZIGZAG LINKED LIST =================
 
-    Node(int val){
-        data=val;
-        next=prev=NULL;
+Node* zigzagLL(Node* head) {
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+
+    Node* righthead = split(head);
+    Node* rightheadrev = reverseLL(righthead);
+
+    Node* left = head;
+    Node* right = rightheadrev;
+
+    while (left != NULL && right != NULL) {
+        Node* nextleft = left->next;
+        Node* nextright = right->next;
+
+        left->next = right;
+
+        if (nextleft == NULL) {
+            break;
+        }
+
+        right->next = nextleft;
+
+        left = nextleft;
+        right = nextright;
+    }
+
+    return head;
+}
+
+// ================= DOUBLY LINKED LIST =================
+
+class DNode {
+public:
+    int data;
+    DNode* next;
+    DNode* prev;
+
+    DNode(int val) {
+        data = val;
+        next = prev = NULL;
     }
 };
-class DoublyList{
-    public:
-    Node* head;
-    Node* tail;
 
-    DoublyList(){
-        head=tail=NULL;
+class DoublyList {
+public:
+    DNode* head;
+    DNode* tail;
+
+    DoublyList() {
+        head = tail = NULL;
     }
 
-    void push_front(int val){
-        Node* newNode =new Node(val);
-        
+    void push_Front(int val) {
+        cout<<"Inserting at front: "<<val<<"\n";
+        DNode* newNode = new DNode(val);
+
+        if (head == NULL) {
+            head = tail = newNode;
+        }
+        else {
+            newNode->next = head;
+            head->prev = newNode;
+            head = newNode;
+        }
+    }
+    
+    void pop_front(){
         if(head==NULL){
-            head=tail=newNode;
+            cout<<"List is empty\n";
+            return;
+        }
+        cout<<"Deleting front element: "<<head->data<<"\n";
+
+        DNode* temp=head;
+        head=head->next;
+        if(head!=NULL){
+            head->prev=NULL;
         }
         else{
-            newNode->next=head;
-            head->prev=newNode;
-            head=newNode;
+            tail=NULL;
         }
-    }    
+        temp->next=NULL;
+        delete temp;
+    }
 
-    void printList(){
-        Node* temp= head;
-        while(temp!=NULL){
-            cout<<temp->data<<"<=> ";
-            temp=temp->next;
+    void printList() {
+        DNode* temp = head;
+
+        while (temp != NULL) {
+            cout << temp->data << "<=> ";
+            temp = temp->next;
         }
-        cout<<"NULL\n";
+
+        cout << "NULL\n";
     }
 };
 
-
+// ================= MAIN FUNCTION =================
 
 int main() {
     list<int> myList;
@@ -306,15 +349,23 @@ int main() {
     printlist(ans.head);
 
     ans.head = zigzagLL(ans.head);
+
     cout << "Custom linked list after zigzag:\n";
     printlist(ans.head);
 
-    DoublyList dl;
-    dl.push_front(1);
-    dl.push_front(2);
-    dl.push_front(3);
-    dl.push_front(4);
-    dl.push_front(5);
-    dl.printList();
+    cout << "\nDoubly linked list:\n";
+
+    DoublyList dll;
+
+    dll.push_Front(1);
+    dll.push_Front(2);
+    dll.push_Front(3);
+    dll.push_Front(4);
+    dll.push_Front(5);
+    dll.printList(); // 5<=>4<=>3<=>2<=>1<=>NULL
+
+    dll.pop_front();
+    dll.printList();// 4<=>3<=>2<=>1<=>NULL
+
     return 0;
 }
