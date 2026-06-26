@@ -115,6 +115,26 @@ void validparanthesis(string str){
     cout<<"valid paranthesis.\n";
 }
 
+bool duplicateparanthesis(string str){
+    stack<char>s;
+    for(int i=0;i<str.size();i++){
+        char ch=str[i];
+        if(ch!=')'){
+            s.push(ch);
+        }
+        else{
+            if( s.top()=='('){
+                return true "\n"; // duplicate paranthesis
+            }
+            while(s.top()!='('){
+                s.pop();
+            }
+            s.pop();
+        }
+    }
+    return false "\n";
+} 
+
 int main(){     
     cout<<"stack of template class: \n";
     NStack<char> s1;
@@ -179,11 +199,27 @@ int main(){
     }
     cout<<"\n";
 
-    cout<<"valid paranthesis using stack: \n";
+    cout<<"VALID paranthesis using stack: \n";
     string str1="(())))";
     string str2="({[]})";
     validparanthesis(str1);
     validparanthesis(str2);
+
+    cout<<"DUPLICATE paranthesis using stack: \n";
+    string str3="((a+b))";
+    string str4="((a+b)+(c+d))";
+    if(duplicateparanthesis(str3)){
+        cout<<"duplicate paranthesis.\n";
+    }
+    else{
+        cout<<"not duplicate paranthesis.\n";
+    }
+    if(duplicateparanthesis(str4)){
+        cout<<"duplicate paranthesis.\n";
+    }
+    else{
+        cout<<"not duplicate paranthesis.\n";
+    }
 
     return 0;
 }
