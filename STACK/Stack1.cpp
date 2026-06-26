@@ -84,7 +84,38 @@ void ReverseStack(stack<int>& s6){
     s6=temp; 
 }
 
-int main(){
+void validparanthesis(string str){
+    stack<char> s;
+    for(int i=0;i<str.size();i++){
+        char ch=str[i];
+        if(ch=='(' || ch=='{' || ch=='['){
+            s.push(ch);
+        }
+        else{
+            if(!s.empty()){
+                char top=s.top();
+                if((ch==')' && top=='(') || (ch=='}' && top=='{') || (ch==']' && top=='[')){
+                    s.pop();
+                }
+                else{
+                    cout<<"not valid paranthesis.\n";
+                    return;
+                }
+            }
+            else{
+                cout<<"not valid paranthesis.\n";
+                return;
+            }
+        }
+    }
+    if(!s.empty()){
+        cout<<"not valid paranthesis.\n";
+        return;
+    }
+    cout<<"valid paranthesis.\n";
+}
+
+int main(){     
     cout<<"stack of template class: \n";
     NStack<char> s1;
 
@@ -147,6 +178,12 @@ int main(){
         s6.pop();
     }
     cout<<"\n";
+
+    cout<<"valid paranthesis using stack: \n";
+    string str1="(())))";
+    string str2="({[]})";
+    validparanthesis(str1);
+    validparanthesis(str2);
 
     return 0;
 }
