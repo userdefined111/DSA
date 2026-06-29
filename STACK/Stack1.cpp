@@ -115,25 +115,31 @@ void validparanthesis(string str){
     cout<<"valid paranthesis.\n";
 }
 
-bool duplicateparanthesis(string str){
-    stack<char>s;
-    for(int i=0;i<str.size();i++){
-        char ch=str[i];
-        if(ch!=')'){
+bool duplicateparanthesis(string str) {
+    stack<char> s;
+    for (char ch : str) {
+        if (ch != ')') {
             s.push(ch);
-        }
-        else{
-            if( s.top()=='('){return true ; }// duplicate paranthesis
-            if(s.top()=='('){return true ; }// duplicate paranthesis
-                while(s.top()!='('){
+        } else {
+            // If stack is empty, the expression is invalid – but we'll treat it as no duplicate.
+            if (s.empty()) return false;
+
+            // If top is '(' immediately, we have an empty pair -> duplicate.
+            if (s.top() == '(') {
+                return true;
+            }
+
+            // Otherwise, pop until we find '('
+            while (!s.empty() && s.top() != '(') {
                 s.pop();
             }
-            if(!s.empty()){
+            // Pop the '(' itself (if present)
+            if (!s.empty()) {
                 s.pop();
             }
         }
     }
-    return false ; // no duplicate paranthesis
+    return false;
 } 
 
 int MaxAreaHistogram(vector<int> height){
@@ -270,6 +276,6 @@ int main(){
     }
 
     cout<<"Maximum area in histogram: "<<MaxAreaHistogram({2,1,5,6,2,3})<<endl;
-    
+
     return 0;
 }
