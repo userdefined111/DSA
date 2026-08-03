@@ -36,9 +36,11 @@ public:
     {
         return q1.empty();
     }
+
 };
 
-int main()
+int
+main()
 {
     Stack s;
     s.push(1);
