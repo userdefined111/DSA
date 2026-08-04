@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 // class user{
@@ -7,7 +7,7 @@ using namespace std;
 //     float cgpa;
 //     void getpercentage(){
 //     cout<< (cgpa*10) << "%";
-//     }   
+//     }
 // };
 
 // int main(){
@@ -22,7 +22,7 @@ using namespace std;
 
 // class Students{
 //     string name;
-//     float cgpa; 
+//     float cgpa;
 //  public:
 //      void getpercentage(){
 //      cout<< (cgpa*10) << "%";
@@ -63,16 +63,16 @@ using namespace std;
 //         color = "Unknown";
 //     }
 //     car(string name, string color){
-    //     cout<< "Parameterized constructor called" << endl;
-    //     this->name = name;
-    //     this->color = color;
-    // }
-    // void start(){
-    //     cout << "Car started" << endl;
-    // }
-    // void stop(){
-    //     cout << "Car stopped" << endl;
-    // } 
+//     cout<< "Parameterized constructor called" << endl;
+//     this->name = name;
+//     this->color = color;
+// }
+// void start(){
+//     cout << "Car started" << endl;
+// }
+// void stop(){
+//     cout << "Car stopped" << endl;
+// }
 // };
 
 // int main(){
@@ -128,7 +128,7 @@ using namespace std;
 //         color= original.color;
 //         mileage=new int; //deep copy
 //         *mileage= *original.mileage; //deep copy
-//         mileage= original.mileage; //shallow copy    
+//         mileage= original.mileage; //shallow copy
 //     }
 //     ~car(){
 //         if(mileage!=NULL){
@@ -196,23 +196,28 @@ using namespace std;
 //     }
 // };
 
-class teacher{
+class teacher
+{
 public:
-    void salary(){
+    void salary()
+    {
         cout << "Salary: $5000\n";
     }
 };
-class students{
+class students
+{
 public:
     int rollno;
     float cgpa;
 };
-class TA:public teacher, public students{
+class TA : public teacher, public students
+{
 public:
     string name;
 };
 
-int main(){
+int main()
+{
     TA ta1;
     ta1.name = "Kapil Soni";
     ta1.rollno = 2840;

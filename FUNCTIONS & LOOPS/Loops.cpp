@@ -2,7 +2,8 @@
 using namespace std;
 
 // 1. Sum of first n natural numbers
-void sumOfNaturalNumbers() {
+void sumOfNaturalNumbers()
+{
     int n;
 
     cout << "Enter the number: ";
@@ -10,7 +11,8 @@ void sumOfNaturalNumbers() {
 
     int sum = 0;
 
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++)
+    {
         sum = sum + i;
     }
 
@@ -18,10 +20,12 @@ void sumOfNaturalNumbers() {
 }
 
 // 2. Print numbers from 10 to 25
-void printNumbers10To25() {
+void printNumbers10To25()
+{
     int i = 10;
 
-    while (i <= 25) {
+    while (i <= 25)
+    {
         cout << i << " ";
         i++;
     }
@@ -30,14 +34,17 @@ void printNumbers10To25() {
 }
 
 // 3. Print star pattern
-void starPattern() {
+void starPattern()
+{
     int n;
 
     cout << "Enter the number of lines: ";
     cin >> n;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= i; j++) {
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
             cout << "*";
         }
 
@@ -46,7 +53,8 @@ void starPattern() {
 }
 
 // 4. Sum of odd digits of a number
-void sumOfOddDigits() {
+void sumOfOddDigits()
+{
     int n;
 
     cout << "Enter the number: ";
@@ -54,10 +62,12 @@ void sumOfOddDigits() {
 
     int digitSum = 0;
 
-    while (n > 0) {
+    while (n > 0)
+    {
         int lastDigit = n % 10;
 
-        if (lastDigit % 2 != 0) {
+        if (lastDigit % 2 != 0)
+        {
             digitSum = digitSum + lastDigit;
         }
 
@@ -68,7 +78,8 @@ void sumOfOddDigits() {
 }
 
 // 5. Factorial of a number
-void factorialOfNumber() {
+void factorialOfNumber()
+{
     int n;
 
     cout << "Enter the number: ";
@@ -76,7 +87,8 @@ void factorialOfNumber() {
 
     int factorial = 1;
 
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++)
+    {
         factorial = factorial * i;
     }
 
@@ -84,7 +96,8 @@ void factorialOfNumber() {
 }
 
 // 6. Reverse number by printing digits
-void reverseNumberByPrinting() {
+void reverseNumberByPrinting()
+{
     int n;
 
     cout << "Enter the number to reverse: ";
@@ -92,7 +105,8 @@ void reverseNumberByPrinting() {
 
     cout << "Reversed number is: ";
 
-    while (n > 0) {
+    while (n > 0)
+    {
         int lastDigit = n % 10;
         cout << lastDigit;
         n = n / 10;
@@ -102,7 +116,8 @@ void reverseNumberByPrinting() {
 }
 
 // 7. Reverse number and store result
-void reverseNumberStored() {
+void reverseNumberStored()
+{
     int n;
 
     cout << "Enter the number to reverse: ";
@@ -110,7 +125,8 @@ void reverseNumberStored() {
 
     int result = 0;
 
-    while (n > 0) {
+    while (n > 0)
+    {
         int lastDigit = n % 10;
         result = result * 10 + lastDigit;
         n = n / 10;
@@ -120,23 +136,28 @@ void reverseNumberStored() {
 }
 
 // 8. Do while loop example
-void doWhileExample() {
+void doWhileExample()
+{
     int n = 1;
 
-    do {
+    do
+    {
         cout << "Hello world in do-while loop" << endl;
     } while (n > 5);
 }
 
 // 9. Continue example, skip numbers ending with 0
-void continueExample() {
+void continueExample()
+{
     int n;
 
-    while (true) {
+    while (true)
+    {
         cout << "Enter the number: ";
         cin >> n;
 
-        if (n % 10 == 0) {
+        if (n % 10 == 0)
+        {
             continue;
         }
 
@@ -145,7 +166,8 @@ void continueExample() {
 }
 
 // 10. Check prime number
-void checkPrimeNumber() {
+void checkPrimeNumber()
+{
     int n;
 
     cout << "Enter a number: ";
@@ -153,49 +175,64 @@ void checkPrimeNumber() {
 
     bool isPrime = true;
 
-    if (n <= 1) {
+    if (n <= 1)
+    {
         isPrime = false;
     }
 
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
+    for (int i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0)
+        {
             isPrime = false;
             break;
         }
     }
 
-    if (isPrime) {
+    if (isPrime)
+    {
         cout << n << " is a prime number" << endl;
-    } else {
+    }
+    else
+    {
         cout << n << " is not a prime number" << endl;
     }
 }
 
 // 11. Multiplication table
-void multiplicationTable() {
+void multiplicationTable()
+{
     int n;
     cout << "Enter a number: ";
     cin >> n;
     cout << "Multiplication table of " << n << " is:" << endl;
-    for (int i = 1; i <= 10; i++) {
+    for (int i = 1; i <= 10; i++)
+    {
         cout << n << " x " << i << " = " << n * i << endl;
     }
 }
 
 // 12. Fibonacci series
-void fibonacciSeries() {
+void fibonacciSeries()
+{
     int n;
     cout << "Enter number of terms: ";
     cin >> n;
     int first = 0;
     int second = 1;
-    if (n <= 0) {
+    if (n <= 0)
+    {
         cout << "Invalid input" << endl;
-    } else if (n == 1) {
+    }
+    else if (n == 1)
+    {
         cout << first << endl;
-    } else {
+    }
+    else
+    {
         cout << first << " " << second << " ";
-        for (int i = 2; i < n; i++) {
+        for (int i = 2; i < n; i++)
+        {
             int third = first + second;
             cout << third << " ";
             first = second;
@@ -205,7 +242,8 @@ void fibonacciSeries() {
     }
 }
 
-int main() {
+int main()
+{
     int choice;
 
     cout << "Choose an operation:" << endl;
@@ -225,45 +263,46 @@ int main() {
     cout << "Enter your choice: ";
     cin >> choice;
 
-    switch (choice) {
-        case 1:
-            sumOfNaturalNumbers();
-            break;
-        case 2:
-            printNumbers10To25();
-            break;
-        case 3:
-            starPattern();
-            break;
-        case 4:
-            sumOfOddDigits();
-            break;
-        case 5:
-            factorialOfNumber();
-            break;
-        case 6:
-            reverseNumberByPrinting();
-            break;
-        case 7:
-            reverseNumberStored();
-            break;
-        case 8:
-            doWhileExample();
-            break;
-        case 9:
-            continueExample();
-            break;
-        case 10:
-            checkPrimeNumber();
-            break;
-        case 11:
-            multiplicationTable();
-            break;
-        case 12:
-            fibonacciSeries();
-            break;
-        default:
-            cout << "Invalid choice" << endl;
+    switch (choice)
+    {
+    case 1:
+        sumOfNaturalNumbers();
+        break;
+    case 2:
+        printNumbers10To25();
+        break;
+    case 3:
+        starPattern();
+        break;
+    case 4:
+        sumOfOddDigits();
+        break;
+    case 5:
+        factorialOfNumber();
+        break;
+    case 6:
+        reverseNumberByPrinting();
+        break;
+    case 7:
+        reverseNumberStored();
+        break;
+    case 8:
+        doWhileExample();
+        break;
+    case 9:
+        continueExample();
+        break;
+    case 10:
+        checkPrimeNumber();
+        break;
+    case 11:
+        multiplicationTable();
+        break;
+    case 12:
+        fibonacciSeries();
+        break;
+    default:
+        cout << "Invalid choice" << endl;
     }
     return 0;
 }

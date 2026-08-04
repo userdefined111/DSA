@@ -1,62 +1,74 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void merge(int a[],int l, int mid, int r){//O(n) time complexity
-    vector <int > temp;
-    int i=l,j=mid+1;
-    while(i<=mid&&j<=r){
-        if(a[i]<a[j]){
+void merge(int a[], int l, int mid, int r)
+{ // O(n) time complexity
+    vector<int> temp;
+    int i = l, j = mid + 1;
+    while (i <= mid && j <= r)
+    {
+        if (a[i] < a[j])
+        {
             temp.push_back(a[i]);
             i++;
         }
-        else{
+        else
+        {
             temp.push_back(a[j]);
             j++;
         }
     }
-    while(i<=mid){
+    while (i <= mid)
+    {
         temp.push_back(a[i]);
         i++;
     }
-    while(j<=r){
+    while (j <= r)
+    {
         temp.push_back(a[j]);
         j++;
     }
 
-    for(int k=0;k<temp.size();k++){
-        a[l+k]=temp[k];
+    for (int k = 0; k < temp.size(); k++)
+    {
+        a[l + k] = temp[k];
     }
-
 }
 
-void mergesort(int a[],int l, int r){//O(nlogn) time complexity
-    if(l>=r){
+void mergesort(int a[], int l, int r)
+{ // O(nlogn) time complexity
+    if (l >= r)
+    {
         return;
     }
-    int mid=l+(r-l)/2; 
-    mergesort(a,l,mid);
-    mergesort(a,mid+1,r);
+    int mid = l + (r - l) / 2;
+    mergesort(a, l, mid);
+    mergesort(a, mid + 1, r);
 
-    merge(a,l,mid,r);
+    merge(a, l, mid, r);
 }
 
-void printarr(int a[],int n){
-    for(int i=0;i<n;i++){
-        cout<<a[i]<<" ";
+void printarr(int a[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i] << " ";
     }
-    cout<<endl;
+    cout << endl;
 }
 
-int main(){
+int main()
+{
     int n;
-    cout<<"Enter the size of the array: ";
-    cin>>n;
+    cout << "Enter the size of the array: ";
+    cin >> n;
     int arr[n];
-    cout<<"Enter the elements of the array: ";
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
+    cout << "Enter the elements of the array: ";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
     }
-    mergesort(arr,0,n-1);
-    printarr(arr,n);
+    mergesort(arr, 0, n - 1);
+    printarr(arr, n);
     return 0;
 }

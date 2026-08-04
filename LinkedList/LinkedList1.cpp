@@ -2,147 +2,177 @@
 using namespace std;
 
 // Linked List Implementation using class
-class Node{
-    public:
+class Node
+{
+public:
     int data;
-    Node* next;
+    Node *next;
 
-    Node(int value) {
+    Node(int value)
+    {
         data = value;
         next = nullptr;
     }
-    ~Node() {
-        if (next != NULL) {
+    ~Node()
+    {
+        if (next != NULL)
+        {
             delete next;
             next = NULL;
         }
     }
-
 };
 
-class List{
-    Node* head;
-    Node* tail;
+class List
+{
+    Node *head;
+    Node *tail;
+
 public:
-    List(){
+    List()
+    {
         head = NULL;
         tail = NULL;
     }
 
-    void push_front(int value){
-        Node* newNode = new Node(value);
-        if (head == NULL) {
+    void push_front(int value)
+    {
+        Node *newNode = new Node(value);
+        if (head == NULL)
+        {
             head = tail = newNode;
-        } 
-        else {
+        }
+        else
+        {
             newNode->next = head;
             head = newNode;
         }
     }
 
-    void push_back(int val){
-        Node* newNode = new Node(val);
-        if(head== NULL){
-            head=tail=newNode;
+    void push_back(int val)
+    {
+        Node *newNode = new Node(val);
+        if (head == NULL)
+        {
+            head = tail = newNode;
         }
-        else{
-            tail->next=newNode;
-            tail=newNode;
+        else
+        {
+            tail->next = newNode;
+            tail = newNode;
         }
     }
 
-    void print(){
-        Node* temp = head;
-        while(temp!=NULL){
-            cout<<temp->data<<" -> ";
-            temp=temp->next;
+    void print()
+    {
+        Node *temp = head;
+        while (temp != NULL)
+        {
+            cout << temp->data << " -> ";
+            temp = temp->next;
         }
-        cout<<"NULL\n";
+        cout << "NULL\n";
     }
 
-    void InsertMiddle(int value,int pos){
-        Node* newNode=new Node(value);
-        Node * temp=head;
-        for(int i=0;i<pos-1;i++){
-            if(temp==NULL){
-                cout<<"Position out of bounds\n";
+    void InsertMiddle(int value, int pos)
+    {
+        Node *newNode = new Node(value);
+        Node *temp = head;
+        for (int i = 0; i < pos - 1; i++)
+        {
+            if (temp == NULL)
+            {
+                cout << "Position out of bounds\n";
                 return;
             }
-            temp=temp->next;
+            temp = temp->next;
         }
-        newNode->next=temp->next;
-        temp->next=newNode;
+        newNode->next = temp->next;
+        temp->next = newNode;
     }
 
-    void pop_front(){
-        Node* temp=head;
-        head=head->next;
-        temp->next=NULL;
+    void pop_front()
+    {
+        Node *temp = head;
+        head = head->next;
+        temp->next = NULL;
         delete temp;
     }
 
-    void pop_back(){
-        Node* temp=head;
-        while(temp->next->next!=NULL){
-            temp=temp->next;
+    void pop_back()
+    {
+        Node *temp = head;
+        while (temp->next->next != NULL)
+        {
+            temp = temp->next;
         }
-        temp->next=NULL;
+        temp->next = NULL;
         delete tail;
-        tail=temp;
+        tail = temp;
     }
 
-    ~List(){
-        if(head!=NULL){
+    ~List()
+    {
+        if (head != NULL)
+        {
             delete head;
-            head=NULL;
+            head = NULL;
         }
     }
 
-    void srch(int key){
-        Node* temp =head;
-        int idx=0;
+    void srch(int key)
+    {
+        Node *temp = head;
+        int idx = 0;
 
-        while(temp!=NULL){
-            if(temp->data==key){
-                cout<<"Element found at index: "<<idx<<"\n";
+        while (temp != NULL)
+        {
+            if (temp->data == key)
+            {
+                cout << "Element found at index: " << idx << "\n";
                 return;
             }
-            temp=temp->next;
+            temp = temp->next;
             idx++;
         }
-        cout<<"Element not found\n";
+        cout << "Element not found\n";
     }
 
-    void reverse(){
-        Node* prev=NULL;
-        Node* current=head;
-        Node* next=NULL;
+    void reverse()
+    {
+        Node *prev = NULL;
+        Node *current = head;
+        Node *next = NULL;
 
-        while(current!=NULL){
-            next=current->next;
-            current->next=prev;
-            prev=current;
-            current=next;
+        while (current != NULL)
+        {
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
         }
-        head=prev;
+        head = prev;
     }
 
-    void nthNodeFromEnd(int n){
-        Node* newNode=head;
-        newNode=head;
-        for(int i=0;i<n;i++){
-            if(newNode==NULL){
-                cout<<"Position out of bounds\n";
+    void nthNodeFromEnd(int n)
+    {
+        Node *newNode = head;
+        newNode = head;
+        for (int i = 0; i < n; i++)
+        {
+            if (newNode == NULL)
+            {
+                cout << "Position out of bounds\n";
                 return;
             }
-            newNode=newNode->next;
+            newNode = newNode->next;
         }
-        cout<<"The "<<n<<"th node from the end is: "<<newNode->data<<"\n";
+        cout << "The " << n << "th node from the end is: " << newNode->data << "\n";
     }
-
 };
 
-int main(){
+int main()
+{
     List ll;
     ll.push_front(30);
     ll.push_front(20);
@@ -155,7 +185,7 @@ int main(){
     ll.print();
     // 10->20->30->40->50
 
-    ll.InsertMiddle(25,2);
+    ll.InsertMiddle(25, 2);
     ll.print();
     // 10->20->25->30->40->50
 

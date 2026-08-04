@@ -2,17 +2,20 @@
 using namespace std;
 
 // 1. Print fixed character array
-void printCharArray() {
+void printCharArray()
+{
     char arr[5] = {'a', 'b', 'c', 'd', 'e'};
 
     cout << "Characters are:\n";
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
+    {
         cout << arr[i] << "\n";
     }
 }
 
 // 2. Input word using char array
-void inputWordCharArray() {
+void inputWordCharArray()
+{
     char arr[100];
 
     cout << "Enter a word: ";
@@ -23,7 +26,8 @@ void inputWordCharArray() {
 }
 
 // 3. Input sentence using char array
-void inputSentenceCharArray() {
+void inputSentenceCharArray()
+{
     char sentence[100];
 
     cin.ignore();
@@ -36,24 +40,31 @@ void inputSentenceCharArray() {
 }
 
 // 4. Convert word to uppercase
-void toUpper(char word[], int n) {
-    for (int i = 0; i < n; i++) {
+void toUpper(char word[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
         char ch = word[i];
 
-        if (ch >= 'A' && ch <= 'Z') {
+        if (ch >= 'A' && ch <= 'Z')
+        {
             continue;
-        } else if (ch >= 'a' && ch <= 'z') {
+        }
+        else if (ch >= 'a' && ch <= 'z')
+        {
             word[i] = ch - 'a' + 'A';
         }
     }
 }
 
 // 5. Reverse character array
-void ReverseCharArray(char arr[], int n) {
+void ReverseCharArray(char arr[], int n)
+{
     int st = 0;
     int end = n - 1;
 
-    while (st < end) {
+    while (st < end)
+    {
         swap(arr[st], arr[end]);
         st++;
         end--;
@@ -61,12 +72,15 @@ void ReverseCharArray(char arr[], int n) {
 }
 
 // 6. Check palindrome
-bool Palindrome(char arr[], int n) {
+bool Palindrome(char arr[], int n)
+{
     int st = 0;
     int end = n - 1;
 
-    while (st < end) {
-        if (arr[st] != arr[end]) {
+    while (st < end)
+    {
+        if (arr[st] != arr[end])
+        {
             cout << "Not a palindrome\n";
             return false;
         }
@@ -80,7 +94,8 @@ bool Palindrome(char arr[], int n) {
 }
 
 // 7. Input sentence using string
-void inputSentenceString() {
+void inputSentenceString()
+{
     string str;
 
     cin.ignore();
@@ -92,7 +107,8 @@ void inputSentenceString() {
     cout << "The length of your sentence is " << str.length() << "\n";
 }
 
-int main() {
+int main()
+{
     int choice;
 
     cout << "Choose operation:\n";
@@ -107,19 +123,23 @@ int main() {
     cout << "Enter your choice: ";
     cin >> choice;
 
-    if (choice == 1) {
+    if (choice == 1)
+    {
         printCharArray();
     }
 
-    else if (choice == 2) {
+    else if (choice == 2)
+    {
         inputWordCharArray();
     }
 
-    else if (choice == 3) {
+    else if (choice == 3)
+    {
         inputSentenceCharArray();
     }
 
-    else if (choice == 4) {
+    else if (choice == 4)
+    {
         char word[100];
 
         cout << "Enter a word: ";
@@ -132,7 +152,8 @@ int main() {
         cout << "Uppercase word is: " << word << "\n";
     }
 
-    else if (choice == 5) {
+    else if (choice == 5)
+    {
         char word[100];
 
         cout << "Enter a word: ";
@@ -145,7 +166,8 @@ int main() {
         cout << "Reversed word is: " << word << "\n";
     }
 
-    else if (choice == 6) {
+    else if (choice == 6)
+    {
         char word[100];
 
         cout << "Enter a word: ";
@@ -156,11 +178,13 @@ int main() {
         Palindrome(word, n);
     }
 
-    else if (choice == 7) {
+    else if (choice == 7)
+    {
         inputSentenceString();
     }
 
-    else {
+    else
+    {
         cout << "Invalid choice\n";
     }
 

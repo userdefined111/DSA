@@ -9,12 +9,12 @@ The main goal of this repository is to build a strong foundation in DSA by learn
 
 This repo includes:
 
-* Concept-wise DSA notes
-* C++ implementations
-* Practice problems
-* Important patterns and approaches
-* Code explanations wherever needed
-* Revision-friendly structure
+- Concept-wise DSA notes
+- C++ implementations
+- Practice problems
+- Important patterns and approaches
+- Code explanations wherever needed
+- Revision-friendly structure
 
 ## 🧠 Language Used
 
@@ -26,24 +26,24 @@ C++
 
 The repository is organized topicwise. Topics may include:
 
-* Arrays
-* Strings
-* Recursion
-* Sorting
-* Searching
-* Backtracking
-* Linked List
-* Stack
-* Queue
-* Trees
-* Binary Search Tree
-* Heap
-* Hashing
-* Graphs
-* Dynamic Programming
-* Greedy Algorithms
-* Bit Manipulation
-* Tries
+- Arrays
+- Strings
+- Recursion
+- Sorting
+- Searching
+- Backtracking
+- Linked List
+- Stack
+- Queue
+- Trees
+- Binary Search Tree
+- Heap
+- Hashing
+- Graphs
+- Dynamic Programming
+- Greedy Algorithms
+- Bit Manipulation
+- Tries
 
 ## 📂 Folder Structure
 
@@ -105,6 +105,7 @@ DSA/
 ├── Stack/
 |   ├── Stack1.cpp
 ├── Queue/
+|    ├── 
 ├── Trees/
 ├── Graphs/
 ├── Dynamic_Programming/
@@ -127,10 +128,10 @@ DSA/
 | Bit Manipulation    | Completed   |
 | Divide & Conquer    | Completed   |
 | OOPS                | Completed   |
-| Stack               | In Progress |
-| Queue               | Pending     |
+| Stack               | Completed   |
+| Queue               | Completed   |
+| Greedy Algorithm    | In Progress |
 | Binary Tree         | Pending     |
-| Greedy Algorithm    | Pending     |
 | BST                 | Pending     |
 | Heaps               | Pending     |
 | Hashing             | Pending     |
@@ -154,11 +155,11 @@ For every topic, I try to follow this structure:
 
 DSA is important for:
 
-* Improving problem-solving skills
-* Coding interviews
-* Competitive programming
-* Building logical thinking
-* Understanding how efficient programs work
+- Improving problem-solving skills
+- Coding interviews
+- Competitive programming
+- Building logical thinking
+- Understanding how efficient programs work
 
 ## 📈 Goal
 
@@ -166,11 +167,11 @@ My goal is to become consistent with DSA and build enough problem-solving confid
 
 ## 🔗 Resources
 
-* Apna College DSA Course
-* LeetCode
-* GeeksforGeeks
-* CodeForces
-* Striver's DSA Sheet
+- Apna College DSA Course
+- LeetCode
+- GeeksforGeeks
+- CodeForces
+- Striver's DSA Sheet
 
 ## 📌 Note
 

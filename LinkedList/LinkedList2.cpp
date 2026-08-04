@@ -3,46 +3,56 @@ using namespace std;
 
 // ================= SINGLY LINKED LIST =================
 
-class Node {
+class Node
+{
 public:
     int data;
-    Node* next;
+    Node *next;
 
-    Node(int val) {
+    Node(int val)
+    {
         data = val;
         next = NULL;
     }
 };
 
-class List {
+class List
+{
 public:
-    Node* head;
-    Node* tail;
+    Node *head;
+    Node *tail;
 
-    List() {
+    List()
+    {
         head = NULL;
         tail = NULL;
     }
 
-    void push_back(int val) {
-        Node* newNode = new Node(val);
+    void push_back(int val)
+    {
+        Node *newNode = new Node(val);
 
-        if (head == NULL) {
+        if (head == NULL)
+        {
             head = tail = newNode;
         }
-        else {
+        else
+        {
             tail->next = newNode;
             tail = newNode;
         }
     }
 
-    void push_front(int val) {
-        Node* newNode = new Node(val);
+    void push_front(int val)
+    {
+        Node *newNode = new Node(val);
 
-        if (head == NULL) {
+        if (head == NULL)
+        {
             head = tail = newNode;
         }
-        else {
+        else
+        {
             newNode->next = head;
             head = newNode;
         }
@@ -51,20 +61,24 @@ public:
 
 // ================= PRINT FUNCTIONS =================
 
-void printlist(list<int>& myList) {
+void printlist(list<int> &myList)
+{
     list<int>::iterator it;
 
-    for (it = myList.begin(); it != myList.end(); it++) {
+    for (it = myList.begin(); it != myList.end(); it++)
+    {
         cout << (*it) << "-> ";
     }
 
     cout << "NULL\n";
 }
 
-void printlist(Node* head) {
-    Node* temp = head;
+void printlist(Node *head)
+{
+    Node *temp = head;
 
-    while (temp != NULL) {
+    while (temp != NULL)
+    {
         cout << temp->data << "-> ";
         temp = temp->next;
     }
@@ -74,38 +88,46 @@ void printlist(Node* head) {
 
 // ================= CYCLE REMOVE =================
 
-void removeCycle(Node* head) {
-    Node* slow = head;
-    Node* fast = head;
+void removeCycle(Node *head)
+{
+    Node *slow = head;
+    Node *fast = head;
     bool isCycle = false;
 
-    while (fast != NULL && fast->next != NULL) {
+    while (fast != NULL && fast->next != NULL)
+    {
         slow = slow->next;
         fast = fast->next->next;
 
-        if (slow == fast) {
+        if (slow == fast)
+        {
             isCycle = true;
             break;
         }
     }
 
-    if (isCycle == false) {
+    if (isCycle == false)
+    {
         return;
     }
 
     slow = head;
 
-    if (slow == fast) {
-        while (fast->next != slow) {
+    if (slow == fast)
+    {
+        while (fast->next != slow)
+        {
             fast = fast->next;
         }
 
         fast->next = NULL;
     }
-    else {
-        Node* prev = NULL;
+    else
+    {
+        Node *prev = NULL;
 
-        while (slow != fast) {
+        while (slow != fast)
+        {
             prev = fast;
             slow = slow->next;
             fast = fast->next;
@@ -117,68 +139,79 @@ void removeCycle(Node* head) {
 
 // ================= FUNCTION DECLARATIONS =================
 
-Node* split(Node* head);
-Node* merge(Node* left, Node* right);
-Node* mergeSort(Node* head);
-Node* zigzagLL(Node* head);
-Node* reverseLL(Node* head);
+Node *split(Node *head);
+Node *merge(Node *left, Node *right);
+Node *mergeSort(Node *head);
+Node *zigzagLL(Node *head);
+Node *reverseLL(Node *head);
 
 // ================= MERGE SORT =================
 
-Node* mergeSort(Node* head) {
-    if (head == NULL || head->next == NULL) {
+Node *mergeSort(Node *head)
+{
+    if (head == NULL || head->next == NULL)
+    {
         return head;
     }
 
-    Node* righthead = split(head);
+    Node *righthead = split(head);
 
-    Node* left = mergeSort(head);
-    Node* right = mergeSort(righthead);
+    Node *left = mergeSort(head);
+    Node *right = mergeSort(righthead);
 
     return merge(left, right);
 }
 
-Node* split(Node* head) {
-    Node* slow = head;
-    Node* fast = head;
-    Node* prev = NULL;
+Node *split(Node *head)
+{
+    Node *slow = head;
+    Node *fast = head;
+    Node *prev = NULL;
 
-    while (fast != NULL && fast->next != NULL) {
+    while (fast != NULL && fast->next != NULL)
+    {
         prev = slow;
         slow = slow->next;
         fast = fast->next->next;
     }
 
-    if (prev != NULL) {
+    if (prev != NULL)
+    {
         prev->next = NULL;
     }
 
     return slow;
 }
 
-Node* merge(Node* left, Node* right) {
+Node *merge(Node *left, Node *right)
+{
     List ans;
 
-    Node* i = left;
-    Node* j = right;
+    Node *i = left;
+    Node *j = right;
 
-    while (i != NULL && j != NULL) {
-        if (i->data <= j->data) {
+    while (i != NULL && j != NULL)
+    {
+        if (i->data <= j->data)
+        {
             ans.push_back(i->data);
             i = i->next;
         }
-        else {
+        else
+        {
             ans.push_back(j->data);
             j = j->next;
         }
     }
 
-    while (i != NULL) {
+    while (i != NULL)
+    {
         ans.push_back(i->data);
         i = i->next;
     }
 
-    while (j != NULL) {
+    while (j != NULL)
+    {
         ans.push_back(j->data);
         j = j->next;
     }
@@ -188,12 +221,14 @@ Node* merge(Node* left, Node* right) {
 
 // ================= REVERSE LINKED LIST =================
 
-Node* reverseLL(Node* head) {
-    Node* prev = NULL;
-    Node* curr = head;
-    Node* next = NULL;
+Node *reverseLL(Node *head)
+{
+    Node *prev = NULL;
+    Node *curr = head;
+    Node *next = NULL;
 
-    while (curr != NULL) {
+    while (curr != NULL)
+    {
         next = curr->next;
         curr->next = prev;
         prev = curr;
@@ -205,24 +240,28 @@ Node* reverseLL(Node* head) {
 
 // ================= ZIGZAG LINKED LIST =================
 
-Node* zigzagLL(Node* head) {
-    if (head == NULL || head->next == NULL) {
+Node *zigzagLL(Node *head)
+{
+    if (head == NULL || head->next == NULL)
+    {
         return head;
     }
 
-    Node* righthead = split(head);
-    Node* rightheadrev = reverseLL(righthead);
+    Node *righthead = split(head);
+    Node *rightheadrev = reverseLL(righthead);
 
-    Node* left = head;
-    Node* right = rightheadrev;
+    Node *left = head;
+    Node *right = rightheadrev;
 
-    while (left != NULL && right != NULL) {
-        Node* nextleft = left->next;
-        Node* nextright = right->next;
+    while (left != NULL && right != NULL)
+    {
+        Node *nextleft = left->next;
+        Node *nextright = right->next;
 
         left->next = right;
 
-        if (nextleft == NULL) {
+        if (nextleft == NULL)
+        {
             break;
         }
 
@@ -237,64 +276,77 @@ Node* zigzagLL(Node* head) {
 
 // ================= DOUBLY LINKED LIST =================
 
-class DNode {
+class DNode
+{
 public:
     int data;
-    DNode* next;
-    DNode* prev;
+    DNode *next;
+    DNode *prev;
 
-    DNode(int val) {
+    DNode(int val)
+    {
         data = val;
         next = prev = NULL;
     }
 };
 
-class DoublyList {
+class DoublyList
+{
 public:
-    DNode* head;
-    DNode* tail;
+    DNode *head;
+    DNode *tail;
 
-    DoublyList() {
+    DoublyList()
+    {
         head = tail = NULL;
     }
 
-    void push_Front(int val) {
-        cout<<"Inserting at front: "<<val<<"\n";
-        DNode* newNode = new DNode(val);
+    void push_Front(int val)
+    {
+        cout << "Inserting at front: " << val << "\n";
+        DNode *newNode = new DNode(val);
 
-        if (head == NULL) {
+        if (head == NULL)
+        {
             head = tail = newNode;
         }
-        else {
+        else
+        {
             newNode->next = head;
             head->prev = newNode;
             head = newNode;
         }
     }
-    
-    void pop_front(){
-        if(head==NULL){
-            cout<<"List is empty\n";
+
+    void pop_front()
+    {
+        if (head == NULL)
+        {
+            cout << "List is empty\n";
             return;
         }
-        cout<<"Deleting front element: "<<head->data<<"\n";
+        cout << "Deleting front element: " << head->data << "\n";
 
-        DNode* temp=head;
-        head=head->next;
-        if(head!=NULL){
-            head->prev=NULL;
+        DNode *temp = head;
+        head = head->next;
+        if (head != NULL)
+        {
+            head->prev = NULL;
         }
-        else{
-            tail=NULL;
+        else
+        {
+            tail = NULL;
         }
-        temp->next=NULL;
+        temp->next = NULL;
         delete temp;
     }
 
-    void printList() {
-        DNode* temp = head;
+    void printList()
+    {
+        DNode *temp = head;
 
-        while (temp != NULL) {
+        while (temp != NULL)
+        {
             cout << temp->data << "<=> ";
             temp = temp->next;
         }
@@ -305,7 +357,8 @@ public:
 
 // ================= MAIN FUNCTION =================
 
-int main() {
+int main()
+{
     list<int> myList;
 
     myList.push_back(1);
@@ -365,7 +418,7 @@ int main() {
     dll.printList(); // 5<=>4<=>3<=>2<=>1<=>NULL
 
     dll.pop_front();
-    dll.printList();// 4<=>3<=>2<=>1<=>NULL
+    dll.printList(); // 4<=>3<=>2<=>1<=>NULL
 
     return 0;
 }

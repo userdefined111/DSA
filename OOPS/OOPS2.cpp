@@ -31,21 +31,27 @@ using namespace std;
 //     }
 // };
 
-class parent{
+class parent
+{
 public:
-    void show(){
+    void show()
+    {
         cout << "Parent class\n";
     }
-    virtual void display(){
+    virtual void display()
+    {
         cout << "Parent class display function\n";
     }
 };
-class child:public parent{
+class child : public parent
+{
 public:
-    void show(){
+    void show()
+    {
         cout << "Child class\n";
     }
-    void display(){
+    void display()
+    {
         cout << "Child class display function\n";
     }
 };
@@ -93,10 +99,10 @@ public:
 //         cout<<"destructor...\n";
 //     }
 // };
-`
-int main(){
+` int main()
+{
     child c;
-    c.show(); // child class
+    c.show();    // child class
     c.display(); // child class display function
     return 0;
 }

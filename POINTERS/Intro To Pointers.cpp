@@ -11,11 +11,11 @@ using namespace std;
 //     return 0;
 // }
 
-
-int main (){
-    int a=5, y=10;
-    int *ptr1=&a, *ptr2=&y;
-    ptr1=ptr2; // now ptr1 points to y
-    cout<<*ptr1<<endl; // prints the value of y which is 10
-    cout<<*ptr2<<endl;
+int main()
+{
+    int a = 5, y = 10;
+    int *ptr1 = &a, *ptr2 = &y;
+    ptr1 = ptr2;           // now ptr1 points to y
+    cout << *ptr1 << endl; // prints the value of y which is 10
+    cout << *ptr2 << endl;
 }

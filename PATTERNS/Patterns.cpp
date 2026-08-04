@@ -2,14 +2,17 @@
 using namespace std;
 
 // 1. Print i*4 pattern
-void patternRowMultiply4() {
+void patternRowMultiply4()
+{
     int n;
 
     cout << "Enter the number of rows: ";
     cin >> n;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n; j++) {
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n; j++)
+        {
             cout << i << "*4 ";
         }
         cout << endl;
@@ -17,14 +20,17 @@ void patternRowMultiply4() {
 }
 
 // 2. Inverted star triangle
-void invertedStarTriangle() {
+void invertedStarTriangle()
+{
     int n;
 
     cout << "Enter the number of rows: ";
     cin >> n;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = n; j >= i; j--) {
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = n; j >= i; j--)
+        {
             cout << "* ";
         }
         cout << endl;
@@ -32,14 +38,17 @@ void invertedStarTriangle() {
 }
 
 // 3. Number triangle: 1 to i
-void numberTriangleIncreasingColumn() {
+void numberTriangleIncreasingColumn()
+{
     int n;
 
     cout << "Enter the number of rows: ";
     cin >> n;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= i; j++) {
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
             cout << j << " ";
         }
         cout << endl;
@@ -47,14 +56,17 @@ void numberTriangleIncreasingColumn() {
 }
 
 // 4. Number triangle: same row number
-void numberTriangleSameRow() {
+void numberTriangleSameRow()
+{
     int n;
 
     cout << "Enter the number of rows: ";
     cin >> n;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= i; j++) {
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
             cout << i << " ";
         }
         cout << endl;
@@ -62,7 +74,8 @@ void numberTriangleSameRow() {
 }
 
 // 5. Continuous alphabet triangle
-void continuousAlphabetTriangle() {
+void continuousAlphabetTriangle()
+{
     int n;
 
     cout << "Enter the number of rows: ";
@@ -70,8 +83,10 @@ void continuousAlphabetTriangle() {
 
     char ch = 'A';
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= i; j++) {
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
             cout << ch++ << " ";
         }
         cout << endl;
@@ -79,7 +94,8 @@ void continuousAlphabetTriangle() {
 }
 
 // 6. Same alphabet in each row
-void sameAlphabetRowTriangle() {
+void sameAlphabetRowTriangle()
+{
     int n;
 
     cout << "Enter the number of rows: ";
@@ -87,8 +103,10 @@ void sameAlphabetRowTriangle() {
 
     char ch = 'A';
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= i; j++) {
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
             cout << ch << " ";
         }
         ch++;
@@ -97,19 +115,25 @@ void sameAlphabetRowTriangle() {
 }
 
 // 7. Hollow rectangle
-void hollowRectangle() {
+void hollowRectangle()
+{
     int n;
 
     cout << "Enter the number of rows: ";
     cin >> n;
 
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++)
+    {
         cout << "* ";
 
-        for (int j = 1; j <= n - 1; j++) {
-            if (i == 1 || i == n) {
+        for (int j = 1; j <= n - 1; j++)
+        {
+            if (i == 1 || i == n)
+            {
                 cout << "* ";
-            } else {
+            }
+            else
+            {
                 cout << "  ";
             }
         }
@@ -119,18 +143,22 @@ void hollowRectangle() {
 }
 
 // 8. Right aligned star triangle
-void rightAlignedStarTriangle() {
+void rightAlignedStarTriangle()
+{
     int n;
 
     cout << "Enter the number of rows: ";
     cin >> n;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n - i; j++) {
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n - i; j++)
+        {
             cout << " ";
         }
 
-        for (int j = 1; j <= i; j++) {
+        for (int j = 1; j <= i; j++)
+        {
             cout << "* ";
         }
 
@@ -139,7 +167,8 @@ void rightAlignedStarTriangle() {
 }
 
 // 9. Floyd's triangle
-void floydTriangle() {
+void floydTriangle()
+{
     int n;
 
     cout << "Enter the number of rows: ";
@@ -147,8 +176,10 @@ void floydTriangle() {
 
     int a = 1;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= i; j++) {
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
             cout << a++ << " ";
         }
         cout << endl;
@@ -156,30 +187,37 @@ void floydTriangle() {
 }
 
 // 10. Diamond pattern
-void diamondPattern() {
+void diamondPattern()
+{
     int n;
 
     cout << "Enter the number of rows: ";
     cin >> n;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n - i; j++) {
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n - i; j++)
+        {
             cout << " ";
         }
 
-        for (int j = 1; j <= 2 * i - 1; j++) {
+        for (int j = 1; j <= 2 * i - 1; j++)
+        {
             cout << "*";
         }
 
         cout << endl;
     }
 
-    for (int i = n; i >= 1; i--) {
-        for (int j = 1; j <= n - i; j++) {
+    for (int i = n; i >= 1; i--)
+    {
+        for (int j = 1; j <= n - i; j++)
+        {
             cout << " ";
         }
 
-        for (int j = 1; j <= 2 * i - 1; j++) {
+        for (int j = 1; j <= 2 * i - 1; j++)
+        {
             cout << "*";
         }
 
@@ -188,38 +226,47 @@ void diamondPattern() {
 }
 
 // 11. Butterfly pattern
-void butterflyPattern() {
+void butterflyPattern()
+{
     int n;
 
     cout << "Enter the number of rows: ";
     cin >> n;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= i; j++) {
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
             cout << "* ";
         }
 
-        for (int j = 1; j < 2 * (n - i); j++) {
+        for (int j = 1; j < 2 * (n - i); j++)
+        {
             cout << " ";
         }
 
-        for (int j = 1; j <= i; j++) {
+        for (int j = 1; j <= i; j++)
+        {
             cout << "* ";
         }
 
         cout << endl;
     }
 
-    for (int i = n; i >= 1; i--) {
-        for (int j = 1; j <= i; j++) {
+    for (int i = n; i >= 1; i--)
+    {
+        for (int j = 1; j <= i; j++)
+        {
             cout << "* ";
         }
 
-        for (int j = 1; j <= 2 * (n - i); j++) {
+        for (int j = 1; j <= 2 * (n - i); j++)
+        {
             cout << " ";
         }
 
-        for (int j = 1; j <= i; j++) {
+        for (int j = 1; j <= i; j++)
+        {
             cout << "* ";
         }
 
@@ -227,7 +274,8 @@ void butterflyPattern() {
     }
 }
 
-int main() {
+int main()
+{
     int choice;
 
     cout << "Choose a pattern:" << endl;
@@ -246,53 +294,54 @@ int main() {
     cout << "Enter your choice: ";
     cin >> choice;
 
-    switch (choice) {
-        case 1:
-            patternRowMultiply4();
-            break;
+    switch (choice)
+    {
+    case 1:
+        patternRowMultiply4();
+        break;
 
-        case 2:
-            invertedStarTriangle();
-            break;
+    case 2:
+        invertedStarTriangle();
+        break;
 
-        case 3:
-            numberTriangleIncreasingColumn();
-            break;
+    case 3:
+        numberTriangleIncreasingColumn();
+        break;
 
-        case 4:
-            numberTriangleSameRow();
-            break;
+    case 4:
+        numberTriangleSameRow();
+        break;
 
-        case 5:
-            continuousAlphabetTriangle();
-            break;
+    case 5:
+        continuousAlphabetTriangle();
+        break;
 
-        case 6:
-            sameAlphabetRowTriangle();
-            break;
+    case 6:
+        sameAlphabetRowTriangle();
+        break;
 
-        case 7:
-            hollowRectangle();
-            break;
+    case 7:
+        hollowRectangle();
+        break;
 
-        case 8:
-            rightAlignedStarTriangle();
-            break;
+    case 8:
+        rightAlignedStarTriangle();
+        break;
 
-        case 9:
-            floydTriangle();
-            break;
+    case 9:
+        floydTriangle();
+        break;
 
-        case 10:
-            diamondPattern();
-            break;
+    case 10:
+        diamondPattern();
+        break;
 
-        case 11:
-            butterflyPattern();
-            break;
+    case 11:
+        butterflyPattern();
+        break;
 
-        default:
-            cout << "Invalid choice" << endl;
+    default:
+        cout << "Invalid choice" << endl;
     }
 
     return 0;

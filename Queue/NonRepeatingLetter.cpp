@@ -11,7 +11,7 @@ void repeatedChar(string str)
         q.push(ch);
         freq[ch - 'a']++;
 
-        while (!q.empty() && freq[q.front()-'a'] > 1)
+        while (!q.empty() && freq[q.front() - 'a'] > 1)
         {
             q.pop();
         }

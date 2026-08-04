@@ -1,33 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Stack{
+class Stack
+{
     deque<int> dq;
+
 public:
-    void push(int x){
-        dq.push_front(x);//dq.push_back(x);//stack
+    void push(int x)
+    {
+        dq.push_front(x); // dq.push_back(x);//stack
     }
 
-    void pop(){
-        dq.pop_front();//dq.pop_back();//stack
+    void pop()
+    {
+        dq.pop_front(); // dq.pop_back();//stack
     }
 
-    void top(){
+    void top()
+    {
         cout << dq.front() << endl;
     }
 
-    bool empty(){
+    bool empty()
+    {
         return dq.empty();
     }
+};
 
-};   
-
-int main(){
+int main()
+{
     Stack s;
-    for(int i = 1; i <= 10; i++){
+    for (int i = 1; i <= 10; i++)
+    {
         s.push(i);
     }
-    for(int i = 1; i <= 5; i++){
+    for (int i = 1; i <= 5; i++)
+    {
         s.top();
         s.pop();
     }

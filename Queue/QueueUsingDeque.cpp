@@ -1,31 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Queue{
+class Queue
+{
     deque<int> dq;
+
 public:
-    void push(int x){
+    void push(int x)
+    {
         dq.push_back(x);
     }
 
-    void pop(){
+    void pop()
+    {
         dq.pop_front();
     }
 
-    int front(){
+    int front()
+    {
         return dq.front();
     }
 
-    bool empty(){
+    bool empty()
+    {
         return dq.empty();
     }
 };
 
-int main(){
+int main()
+{
     Queue q;
-    for(int i = 1; i <=10;i++){
+    for (int i = 1; i <= 10; i++)
+    {
         q.push(i);
     }
-    for(int i = 1; i <= 5;i++){
+    for (int i = 1; i <= 5; i++)
+    {
         cout << q.front() << endl;
         q.pop();
     }
