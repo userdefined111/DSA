@@ -130,7 +130,7 @@ DSA/
 | OOPS                | Completed   |
 | Stack               | Completed   |
 | Queue               | Completed   |
-| Greedy Algorithm    | In Progress |
+| Greedy Algorithm    | Completed   |
 | Binary Tree         | Pending     |
 | BST                 | Pending     |
 | Heaps               | Pending     |
